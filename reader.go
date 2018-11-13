@@ -239,7 +239,7 @@ func (h *Header) ParseSamples(v *Variant) error {
 		return nil
 	}
 	var errors []error
-	v.Samples = make([]*SampleGenotype, len(h.SampleNames))
+	v.Samples = make([]*SampleGenotype, len(strings.Split(v.sampleString, "\t")))
 
 	for i, sample := range strings.Split(v.sampleString, "\t") {
 		var geno *SampleGenotype
